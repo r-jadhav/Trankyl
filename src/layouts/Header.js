@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { links } from './Data'
 import logo from '../assets/img/logo/logo.svg';
 import ReactFlagsSelect from "react-flags-select";
+import i18next from 'i18next';
 
 const handleClick = (e) => {
   e.preventDefault()
@@ -14,10 +15,18 @@ const handleClick = (e) => {
   })
 }
 
-export default function Header() {
+export default function Header({t}) {
 
-  const [select, setSelect] = useState("SE");
-  const onSelect = (code) => setSelect(code);
+  const [select, setSelect] = useState("FR");
+  const onSelect = (code) => {
+    console.log(code)
+    setSelect(code)
+    if(code == 'FR'){
+      i18next.changeLanguage('fr')
+    }else{
+      i18next.changeLanguage('en')
+    }
+  };
   console.log("SELECT", select);
   return (
     <>
@@ -44,7 +53,7 @@ export default function Header() {
             return (
               <li className="nav-item">
                 <a className="nav-link text-dark text-capitalize" href={link.url} key={link.id} onClick={handleClick}>
-                  {link.text}
+                  {t(link.text)}
                 </a>
               </li>
             )
@@ -52,9 +61,12 @@ export default function Header() {
             </ul>
 
             <ReactFlagsSelect
-              selected={select}
+              
               onSelect={onSelect}
               countries={["FR", "GB"]}
+              selected={select}
+              customLabels={{ GB: "EN", FR: "FR" }}
+              
               /*showSelectedLabel={showSelectedLabel}
               selectedSize={selectedSize}
               showOptionLabel={showOptionLabel}

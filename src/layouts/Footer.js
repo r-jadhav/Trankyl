@@ -1,12 +1,13 @@
 import React from 'react'
 import logo from '../assets/img/logo/logo-wh.svg';
 import { FaTiktok } from 'react-icons/fa';
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Footer({style,t}) {
   return (
     <>
     <footer style={style} className="bg-secondary">
-    <section className="section border-bottom border-color">
+    <section className="wide-40 border-bottom border-color">
       <div className="container">
         <div className="row justify-content-between text-center">
           <div className="col-md-12 mb-4 mb-md-0">
@@ -21,6 +22,11 @@ export default function Footer({style,t}) {
           </div>
         </div>
       </div>
+      <a href="tel:+228 90 80 91 91">
+        <div className='stickyPhone'>
+          <FaPhoneAlt className="icons" color="#fff" size={20}/>
+        </div>
+      </a>
     </section>
   
     <section className="py-4">

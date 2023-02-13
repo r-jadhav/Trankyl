@@ -1,22 +1,22 @@
 export const links = [
     {
       id: 1,
-      text: 'Les services',
+      text: 'serviceshead',
       url: '#services',
     },
     {
       id: 2,
-      text: 'Comment ça marche?',
+      text: 'videossubhead', 
       url: '#video',
     },
     {
       id: 3,
-      text: 'Pourquoi nous choisir',
+      text: 'whychooseus',
       url: '#whyChoose',
     },
     {
       id: 4,
-      text: 'Nous contacter',
+      text: 'contactus',
       url: '#contact',
     },
     
